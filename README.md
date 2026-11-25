@@ -1,45 +1,53 @@
 # UzDevKit 🧰
 
-A free, browser-based toolbox for everyday developer tasks. Built as a lightweight, responsive project with vanilla HTML, CSS and JavaScript.
+**A free, privacy-first toolbox for everyday developer tasks.**
 
-**Live demo:** Enable GitHub Pages in the repository settings to publish this app.
+UzDevKit is a lightweight collection of browser-based utilities built with vanilla HTML, CSS and JavaScript. No account, no installation, and no backend required.
 
-## ✨ Features
+## ✨ Tools
 
-- **JSON Formatter** — validate, pretty-print and minify JSON.
-- **Base64 Converter** — encode and decode UTF-8 text.
-- **URL Encoder** — encode and decode URL components.
-- **Timestamp Converter** — convert Unix timestamps and local dates.
-- **Color Helper** — preview HEX colors, inspect RGB values and check contrast against white.
+| Tool | What it does |
+|---|---|
+| JSON Formatter | Validate, pretty-print and minify JSON |
+| Base64 Converter | Encode and decode UTF-8 text |
+| URL Encoder | Encode and decode URL components |
+| Timestamp Converter | Convert Unix timestamps and local dates |
+| Color Helper | Preview HEX, inspect RGB and check contrast against white |
+| Regex Tester | Test regular expressions and inspect matches |
+| Text Toolkit | Change case, clean spaces, remove duplicate lines and count words |
 
-## 🔒 Privacy first
+## 🔒 Privacy
 
-All conversions run locally in your browser. The app has no backend, account system, analytics or external API calls. Your input is not uploaded to a server.
+All processing happens locally in your browser. UzDevKit does not send your input to a server, use analytics, or require an account.
 
 ## 🚀 Run locally
 
 1. Clone this repository.
-2. Open `index.html` in your browser.
+2. Open `index.html` in a modern browser.
 
-No package installation or build step is required.
+There is no build step or package installation.
 
-## 🛠️ Built with
+## 🧰 Built with
 
 - HTML5
-- CSS3
+- CSS3 (responsive layout)
 - Vanilla JavaScript
 
 ## 🗺️ Roadmap
 
-- [ ] Add language switch (Uzbek / English)
-- [ ] Add copy buttons to every output
-- [ ] Add a Markdown preview tool
-- [ ] Add keyboard shortcuts
-- [ ] Add automated tests
+- [ ] Uzbek / English language switch
+- [ ] Markdown preview
+- [ ] JSON to CSV converter
+- [ ] More accessibility checks
+- [ ] Automated browser tests
 
-## 🤝 Feedback and contributions
+## 🤝 Contributing
 
-Found a bug or have an idea? Open an issue or submit a pull request. Contributions are welcome!
+Issues and pull requests are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before contributing.
+
+## 📄 License
+
+MIT — see [LICENSE](LICENSE).
 
 ---
 
