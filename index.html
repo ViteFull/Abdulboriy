@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1020">
+<meta name="description" content="UzDevKit — JSON, Base64, URL va timestamp uchun bepul, maxfiylikka e'tiborli developer toolbox.">
+<title>UzDevKit — Developer Toolbox</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1020;--panel:#111a2e;--panel2:#16223a;--line:#263653;--text:#edf3ff;--muted:#94a6c4;--accent:#8b7cff;--cyan:#55d6d0;--danger:#ff7c91;--good:#68dba2}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#1d2850 0,transparent 42%),var(--bg);color:var(--text);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+.wrap{width:min(1120px,calc(100% - 36px));margin:auto}.top{display:flex;align-items:center;justify-content:space-between;padding:24px 0}.brand{display:flex;gap:12px;align-items:center;font-weight:800;font-size:20px;letter-spacing:-.5px}.logo{display:grid;place-items:center;width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,var(--accent),#4bcbca);color:#07101c;font-weight:900}.top a{color:var(--muted);text-decoration:none}.top a:hover{color:white}
+.hero{padding:42px 0 30px}.eyebrow{color:var(--cyan);font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase}.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.05;letter-spacing:-2px;margin:12px 0}.hero p{color:var(--muted);max-width:650px;font-size:17px;margin:0}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.pill{border:1px solid var(--line);background:#111a2c;color:#b9c8e2;padding:7px 11px;border-radius:99px;font-size:12px}
+.layout{display:grid;grid-template-columns:230px 1fr;gap:18px;margin:22px 0 50px}.sidebar,.workspace{background:rgba(17,26,46,.88);border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 50px #0002}.sidebar{padding:12px;height:max-content}.nav{width:100%;display:flex;align-items:center;gap:11px;padding:13px 12px;border:0;border-radius:11px;background:transparent;color:var(--muted);font:inherit;text-align:left;cursor:pointer}.nav:hover{background:var(--panel2);color:var(--text)}.nav.active{background:linear-gradient(100deg,#7668eb33,#4bcac522);color:white;outline:1px solid #8b7cff55}.nav span:first-child{font-size:18px;width:22px;text-align:center}.workspace{padding:clamp(18px,3vw,30px);min-height:480px}.tool-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:20px}.tool-head h2{margin:0;font-size:24px;letter-spacing:-.6px}.tool-head p{margin:5px 0 0;color:var(--muted)}.tag{color:var(--cyan);font-size:11px;font-weight:700;letter-spacing:1px}
+label{display:block;color:#c8d4e8;font-size:13px;font-weight:650;margin:14px 0 8px}textarea,input{width:100%;background:#0a1223;border:1px solid var(--line);border-radius:12px;color:var(--text);padding:14px;font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;outline:none}textarea{min-height:210px;resize:vertical}textarea:focus,input:focus{border-color:var(--accent);box-shadow:0 0 0 3px #8b7cff22}.actions{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}.btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:10px 15px;border-radius:10px;font-weight:700;cursor:pointer}.btn:hover{filter:brightness(1.18)}.btn.primary{background:linear-gradient(120deg,#8172f4,#4ebfca);border:0;color:#08101d}.btn.ghost{background:transparent}.status{min-height:24px;color:var(--muted);font-size:13px;margin-top:8px}.status.good{color:var(--good)}.status.bad{color:var(--danger)}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.result{background:#0a1223;border:1px solid var(--line);border-radius:12px;padding:14px;min-height:56px;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace;color:#b9e7df}.hint{color:var(--muted);font-size:12px;margin-top:10px}.hidden{display:none!important}.foot{border-top:1px solid var(--line);padding:22px 0 35px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.foot a{color:var(--cyan);text-decoration:none}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:repeat(2,1fr)}.nav{font-size:13px;padding:10px}.hero{padding-top:28px}.two{grid-template-columns:1fr}.workspace{min-height:400px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><div class="logo">U</div>UzDevKit</div><a href="https://github.com/ViteFull/Abdulboriy" target="_blank" rel="noreferrer">GitHub ↗</a></header>
+<section class="hero"><div class="eyebrow">A small toolkit for developers</div><h1>Build faster.<br><span style="color:var(--cyan)">Stay focused.</span></h1><p>Developerlar uchun kundalik kerakli vositalar — bitta joyda. Bepul, tez va ma'lumotlaringizni serverga yubormaydi.</p><div class="pills"><span class="pill">✦ 100% free</span><span class="pill">⌁ Browser-based</span><span class="pill">◈ No sign-up</span><span class="pill">🔒 Local processing</span></div></section>
+<main class="layout">
+<nav class="sidebar" aria-label="Tools">
+<button class="nav active" data-tool="json"><span>{ }</span> JSON Formatter</button>
+<button class="nav" data-tool="base64"><span>⇄</span> Base64</button>
+<button class="nav" data-tool="url"><span>↗</span> URL Encoder</button>
+<button class="nav" data-tool="timestamp"><span>◷</span> Timestamp</button>
+<button class="nav" data-tool="color"><span>◉</span> Color Helper</button>
+</nav>
+<section class="workspace">
+<div id="json" class="tool">
+<div class="tool-head"><div><div class="tag">FORMAT · VALIDATE</div><h2>JSON Formatter</h2><p>JSON ma'lumotini tekshir, tartibla va ixchamlashtir.</p></div></div>
+<label for="jsonInput">JSON input</label><textarea id="jsonInput" spellcheck="false">{ "name": "UzDevKit", "features": ["JSON", "Base64", "URL"] }</textarea>
+<div class="actions"><button class="btn primary" id="formatJson">Format JSON</button><button class="btn" id="minifyJson">Minify</button><button class="btn ghost" id="clearJson">Clear</button></div>
+<div id="jsonStatus" class="status" aria-live="polite"></div>
+</div>
+<div id="base64" class="tool hidden">
+<div class="tool-head"><div><div class="tag">ENCODE · DECODE</div><h2>Base64 Converter</h2><p>Matnni Base64 formatiga o'tkaz yoki qayta och.</p></div></div>
+<label for="baseInput">Your text</label><textarea id="baseInput" placeholder="Matnni shu yerga yoz..." spellcheck="false"></textarea>
+<div class="actions"><button class="btn primary" id="toBase">Encode ↗</button><button class="btn" id="fromBase">↙ Decode</button><button class="btn ghost" id="clearBase">Clear</button></div>
+<label>Result</label><div id="baseResult" class="result" aria-live="polite">Natija shu yerda chiqadi.</div><div id="baseStatus" class="status"></div>
+</div>
+<div id="url" class="tool hidden">
+<div class="tool-head"><div><div class="tag">ENCODE · DECODE</div><h2>URL Encoder</h2><p>URL ichidagi maxsus belgilarni xavfsiz formatga o'tkaz.</p></div></div>
+<label for="urlInput">Text or URL</label><textarea id="urlInput" placeholder="https://example.com/search?q=hello world"></textarea>
+<div class="actions"><button class="btn primary" id="encodeUrl">Encode URL</button><button class="btn" id="decodeUrl">Decode URL</button><button class="btn ghost" id="clearUrl">Clear</button></div>
+<label>Result</label><div id="urlResult" class="result" aria-live="polite">Natija shu yerda chiqadi.</div><div id="urlStatus" class="status"></div>
+</div>
+<div id="timestamp" class="tool hidden">
+<div class="tool-head"><div><div class="tag">TIME CONVERTER</div><h2>Timestamp Converter</h2><p>Unix timestamp va oddiy sana o'rtasida konvertatsiya.</p></div></div>
+<label for="timeInput">Unix timestamp (seconds or milliseconds)</label><input id="timeInput" inputmode="numeric" placeholder="Masalan: 1735689600">
+<div class="actions"><button class="btn primary" id="toDate">Convert to date</button><button class="btn" id="nowTime">Use current time</button></div>
+<div id="timeResult" class="result">Sana va vaqt shu yerda chiqadi.</div>
+<label for="dateInput">Date to timestamp</label><input id="dateInput" type="datetime-local">
+<div class="actions"><button class="btn" id="toTimestamp">Convert to timestamp</button></div><div id="dateResult" class="result">Timestamp shu yerda chiqadi.</div><div class="hint">Natijalar qurilmangning mahalliy vaqt zonasiga mos ko'rsatiladi.</div>
+</div>
+<div id="color" class="tool hidden">
+<div class="tool-head"><div><div class="tag">DESIGN · ACCESSIBILITY</div><h2>Color Helper</h2><p>HEX rangni ko'r, RGB qiymatini ol va contrast darajasini tekshir.</p></div></div>
+<label for="colorInput">Choose a color</label><div class="two"><input id="colorInput" type="color" value="#8b7cff" style="height:54px;padding:5px"><input id="hexInput" value="#8b7cff" aria-label="HEX color"></div>
+<div class="two" style="margin-top:16px"><div><div class="hint">Preview</div><div id="colorPreview" style="height:100px;border-radius:12px;background:#8b7cff;border:1px solid var(--line)"></div></div><div><div class="hint">RGB value</div><div id="rgbResult" class="result">rgb(139, 124, 255)</div><div class="hint">Contrast with white</div><div id="contrastResult" class="result">—</div></div></div>
+<div class="actions"><button class="btn primary" id="copyHex">Copy HEX</button></div><div id="colorStatus" class="status"></div>
+</div>
+</section>
+</main>
+<footer class="foot"><span>Made with care by <strong>ViteFull</strong> · 2026</span><span>Open source · <a href="https://github.com/ViteFull" target="_blank" rel="noreferrer">Follow on GitHub ↗</a></span></footer>
+</div>
+<script>
+const $ = id => document.getElementById(id);
+document.querySelectorAll('.nav').forEach(button=>button.addEventListener('click',()=>{
+ document.querySelectorAll('.nav').forEach(b=>b.classList.toggle('active',b===button));
+ document.querySelectorAll('.tool').forEach(panel=>panel.classList.toggle('hidden',panel.id!==button.dataset.tool));
+}));
+function status(id,message,type=''){const el=$(id);el.textContent=message;el.className='status '+type}
+$('formatJson').onclick=()=>{try{$('jsonInput').value=JSON.stringify(JSON.parse($('jsonInput').value),null,2);status('jsonStatus','✓ Valid JSON — formatted successfully.','good')}catch(e){status('jsonStatus','Invalid JSON: '+e.message,'bad')}};
+$('minifyJson').onclick=()=>{try{$('jsonInput').value=JSON.stringify(JSON.parse($('jsonInput').value));status('jsonStatus','✓ JSON minified.','good')}catch(e){status('jsonStatus','Invalid JSON: '+e.message,'bad')}};
+$('clearJson').onclick=()=>{$('jsonInput').value='';status('jsonStatus','')};
+$('toBase').onclick=()=>{try{$('baseResult').textContent=btoa(unescape(encodeURIComponent($('baseInput').value)));status('baseStatus','✓ Encoded successfully.','good')}catch(e){status('baseStatus','Could not encode this text.','bad')}};
+$('fromBase').onclick=()=>{try{$('baseResult').textContent=decodeURIComponent(escape(atob($('baseInput').value.trim())));status('baseStatus','✓ Decoded successfully.','good')}catch(e){status('baseStatus','Invalid Base64 input.','bad')}};
+$('clearBase').onclick=()=>{$('baseInput').value='';$('baseResult').textContent='Natija shu yerda chiqadi.';status('baseStatus','')};
+$('encodeUrl').onclick=()=>{$('urlResult').textContent=encodeURIComponent($('urlInput').value);status('urlStatus','✓ URL encoded.','good')};
+$('decodeUrl').onclick=()=>{try{$('urlResult').textContent=decodeURIComponent($('urlInput').value);status('urlStatus','✓ URL decoded.','good')}catch(e){status('urlStatus','Invalid encoded URL.','bad')}};
+$('clearUrl').onclick=()=>{$('urlInput').value='';$('urlResult').textContent='Natija shu yerda chiqadi.';status('urlStatus','')};
+$('toDate').onclick=()=>{const raw=$('timeInput').value.trim(),n=Number(raw),ms=raw.length>10?n:n*1000,d=new Date(ms);$('timeResult').textContent=raw&&Number.isFinite(n)&&!isNaN(d)?d.toString()+'\nISO: '+d.toISOString():'Iltimos, to‘g‘ri timestamp kiriting.'};
+$('nowTime').onclick=()=>{$('timeInput').value=Math.floor(Date.now()/1000);$('toDate').click()};
+$('toTimestamp').onclick=()=>{const d=new Date($('dateInput').value);$('dateResult').textContent=$('dateInput').value&&!isNaN(d)?'Seconds: '+Math.floor(d.getTime()/1000)+'\nMilliseconds: '+d.getTime():'Avval sanani tanlang.'};
+function updateColor(){let hex=$('hexInput').value.trim();if(!/^#[0-9a-fA-F]{6}$/.test(hex)){status('colorStatus','HEX format: #RRGGBB','bad');return}hex=hex.toLowerCase();$('hexInput').value=hex;$('colorInput').value=hex;$('colorPreview').style.background=hex;const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);$('rgbResult').textContent='rgb('+r+', '+g+', '+b+')';const linear=v=>{v/=255;return v<=.04045?v/12.92:Math.pow((v+.055)/1.055,2.4)};const lum=.2126*linear(r)+.7152*linear(g)+.0722*linear(b);const ratio=1.05/(lum+.05);$('contrastResult').textContent=ratio.toFixed(2)+':1 — '+(ratio>=4.5?'AA normal text ✓':'Needs darker text');status('colorStatus','Color updated.','good')}
+$('colorInput').oninput=()=>{$('hexInput').value=$('colorInput').value;updateColor()};$('hexInput').onchange=updateColor;
+$('copyHex').onclick=async()=>{try{await navigator.clipboard.writeText($('hexInput').value);status('colorStatus','✓ HEX copied.','good')}catch(e){status('colorStatus','Copy is unavailable in this browser context.','bad')}};
+$('dateInput').value=new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,16);
+updateColor();
+</script>
+</body>
+</html>
